@@ -52,11 +52,11 @@
     </div>
 </div>
 <%--Тело--%>
-<div class="container-body">
+<div class="container w">
     <div class="row centered">
         <br><br>
         <div class="col-lg-4">
-            <i class="fa fa-heart"></i>
+            <img class="img " src="images/tabletka.png"/>
             <h4>DESIGN</h4>
             <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
         </div><!-- col-lg-4 -->
