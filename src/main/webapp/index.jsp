@@ -31,8 +31,8 @@
                 <li><a href="pages/catalog.jsp">Профиль</a></li>
                 <li><a href="pages/catalog.jsp">Корзина</a></li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 
 </div>
 
@@ -43,22 +43,39 @@
         <div id="home-row-1" class="row clearfix">
             <div class="col-12">
                 <h1 class="font-semibold">ДОБРО <span class="font-thin">ПОЖАЛОВАТЬ</span></h1>
-                <h4 class="font-thin">Мы очень рады <span class="font-semibold">что вы посетили</span> наш сайт.</h4>
+                <h4 class="font-thin">Мы очень рады, <span class="font-semibold">что вы посетили</span> наш сайт.</h4>
                 <br>
                 <br>
-            </div><!-- /col-12 -->
-        </div><!-- /row -->
-        <%--<div id="home-row-2" class="row clearfix">--%>
-            <%--<div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="4"><img src="images/s02.png"></div><span>PROFESSIONAL</span></div>--%>
-            <%--<div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="3"><img src="images/s01.png"></div><span>FRIENDLY</span></div>--%>
-            <%--<div class="col-12 col-sm-4"><div class="home-hover navigation-slide" data-slide="5"><img src="images/s03.png"></div><span>SUITABLE</span></div>--%>
-        <%--</div><!-- /row -->--%>
-    </div><!-- /container -->
-</div><!-- /slide1 -->
+            </div>
+        </div>
 
+    </div>
+</div>
+<%--Тело--%>
+<div class="container-body">
+    <div class="row centered">
+        <br><br>
+        <div class="col-lg-4">
+            <i class="fa fa-heart"></i>
+            <h4>DESIGN</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+        </div><!-- col-lg-4 -->
 
-</body>
+        <div class="col-lg-4">
+            <i class="fa fa-laptop"></i>
+            <h4>BOOTSTRAP</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+        </div><!-- col-lg-4 -->
 
+        <div class="col-lg-4">
+            <i class="fa fa-trophy"></i>
+            <h4>SUPPORT</h4>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+        </div><!-- col-lg-4 -->
+    </div><!-- row -->
+    <br>
+    <br>
+</div><!-- container -->
 
 </body>
 </html>

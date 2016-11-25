@@ -116,3 +116,16 @@ header {
     }
 }
 
+body {
+    font-size: 20px;
+}
+
+.container-body{
+    width: 1600px;
+    border: dashed;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
