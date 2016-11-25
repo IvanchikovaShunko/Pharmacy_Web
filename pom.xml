@@ -30,6 +30,11 @@
             <version>3.18.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.5</version>
+        </dependency>
     </dependencies>
 
     <build>
