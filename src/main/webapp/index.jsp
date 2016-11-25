@@ -42,8 +42,8 @@
     <div class="container">
         <div id="home-row-1" class="row clearfix">
             <div class="col-12">
-                <h1 class="font-semibold">MUNTER <span class="font-thin">DESIGN</span></h1>
-                <h4 class="font-thin">We are an <span class="font-semibold">independent interactive agency</span> based in London.</h4>
+                <h1 class="font-semibold">ДОБРО <span class="font-thin">ПОЖАЛОВАТЬ</span></h1>
+                <h4 class="font-thin">Мы очень рады <span class="font-semibold">что вы посетили</span> наш сайт.</h4>
                 <br>
                 <br>
             </div><!-- /col-12 -->
