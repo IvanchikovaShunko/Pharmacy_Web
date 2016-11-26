@@ -13,7 +13,7 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
           integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <link href="css/main.css" rel="stylesheet">
+  <link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
 <%--Навигация--%>
@@ -22,16 +22,16 @@
 
     <div class="navbar-header">
 
-      <a class="navbar-brand" href="#">Аптечная база</a>
+      <a class="navbar-brand" href="../index.jsp">Аптечная база</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="pages/catalog.jsp">Лекарства</a></li>
-        <li><a href="pages/subscription.jsp">Подписки</a></li>
-        <li><a href="pages/profile.jsp">Профиль</a></li>
-        <li><a href="pages/bag.jsp">Корзина</a></li>
+        <li><a href="catalog.jsp">Лекарства</a></li>
+        <li><a href="subscription.jsp">Подписки</a></li>
+        <li><a href="profile.jsp">Профиль</a></li>
+        <li><a href="bag.jsp">Корзина</a></li>
       </ul>
     </div>
   </div>
