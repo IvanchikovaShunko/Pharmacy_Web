@@ -29,9 +29,9 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="pages/catalog.jsp">Лекарства</a></li>
-        <li><a href="pages/catalog.jsp">Подписки</a></li>
-        <li><a href="pages/catalog.jsp">Профиль</a></li>
-        <li><a href="pages/catalog.jsp">Корзина</a></li>
+        <li><a href="pages/subscription.jsp">Подписки</a></li>
+        <li><a href="pages/profile.jsp">Профиль</a></li>
+        <li><a href="pages/bag.jsp">Корзина</a></li>
       </ul>
     </div>
   </div>
@@ -45,8 +45,7 @@
   <div class="container">
     <div id="home-row-1" class="row clearfix">
       <div class="col-12">
-        <h1 class="font-semibold">ДОБРО <span class="font-thin">ПОЖАЛОВАТЬ</span></h1>
-        <h4 class="font-thin">Мы очень рады, <span class="font-semibold">что вы посетили</span> наш сайт.</h4>
+
         <br>
         <br>
       </div>
