@@ -31,23 +31,23 @@
             </props>
         </property>
 
-        <!--<property name="packagesToScan"-->
-                  <!--value="by.bsu.web.entity"/>-->
+        <property name="packagesToScan"
+                  value="by.bsu.web.entity"/>
     </bean>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/addrass_db"/>
-        <property name="username" value="root"/>
-        <property name="password" value="318114275"/>
+        <property name="url" value="jdbc:mysql://us-cdbr-iron-east-04.cleardb.net:3306/heroku_e56817b54c0b57a"/>
+        <property name="username" value="ba9b9dd6018f42"/>
+        <property name="password" value="93d58bb0"/>
     </bean>
 
     <context:annotation-config/>
 
     <!--Scanning components in base-package (look for annotations) -->
-    <!--<context:component-scan base-package="by.bsu.web"/>-->
+    <context:component-scan base-package="by.bsu.web"/>
 
     <!-- Need for Repository abstraction -->
-    <!--<jpa:repositories base-package="by.bsu.web.repository" entity-manager-factory-ref="emf"-->
-                      <!--transaction-manager-ref="transactionManager"/>-->
+    <jpa:repositories base-package="by.bsu.web.repository" entity-manager-factory-ref="emf"
+                      transaction-manager-ref="transactionManager"/>
 </beans>

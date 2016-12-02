@@ -10,8 +10,7 @@
 
     <http use-expressions="true">
         <intercept-url pattern="/**" access="permitAll"/>
-        <!--<intercept-url pattern="/" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/controller/icon/**" access="isAuthenticated()"/>-->
+
 
         <csrf disabled="true"/>
 
@@ -32,9 +31,11 @@
     </http>
 
     <authentication-manager alias="authenticationManager">
-        <!--<authentication-provider user-service-ref="userDetailsService">-->
-            <!--<password-encoder hash="sha-256"/>-->
-        <!--</authentication-provider>-->
-
+        <authentication-provider user-service-ref="userDetailsService">
+            <password-encoder hash="sha-256"/>
+        </authentication-provider>
     </authentication-manager>
+
+
+    <user-service id="userDetailsService"/>
 </beans:beans>
