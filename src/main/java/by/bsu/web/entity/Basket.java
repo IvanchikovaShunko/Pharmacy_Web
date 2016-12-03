@@ -7,11 +7,14 @@ import java.util.Set;
 /**
  * Created by Tatiana on 02.12.2016.
  */
+@Entity
+@Table(name = "basket")
 public class Basket {
     @Id
     @Column(name = "id_basket")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idBasket;
+
 
     @OneToMany(mappedBy = "id_medicine")
     private Set<Medicine> idMedicine;

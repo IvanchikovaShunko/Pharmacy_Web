@@ -7,6 +7,8 @@ import java.util.Date;
 /**
  * Created by Tatiana on 02.12.2016.
  */
+@Entity
+@Table(name = "medicine")
 public class Medicine {
     @Id
     @Column(name = "id_medicine")

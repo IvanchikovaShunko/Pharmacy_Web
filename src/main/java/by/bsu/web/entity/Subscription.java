@@ -7,6 +7,8 @@ import java.util.Set;
 /**
  * Created by Tatiana on 02.12.2016.
  */
+@Entity
+@Table(name = "subscription")
 public class Subscription {
     @Id
     @Column(name = "id_subscription")
