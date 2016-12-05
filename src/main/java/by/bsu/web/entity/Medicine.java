@@ -42,7 +42,7 @@ public class Medicine {
     @Column(name = "dosing")
     private String dosing;
 
-    @Column(name = "contratictions")
+    @Column(name = "contradictions")
     private String contraticions;
 
     public Integer getIdMedicine() {
