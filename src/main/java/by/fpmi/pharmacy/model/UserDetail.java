@@ -1,4 +1,4 @@
-package by.bsu.web.entity;
+package by.fpmi.pharmacy.model;
 
 import javax.persistence.*;
 
@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "user_det")
-public class UserDet {
+public class UserDetail {
     @Id
     @Column(name = "id_user_det")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

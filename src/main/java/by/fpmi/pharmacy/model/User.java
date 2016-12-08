@@ -1,4 +1,4 @@
-package by.bsu.web.entity;
+package by.fpmi.pharmacy.model;
 
 
 
@@ -27,7 +27,7 @@ class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_user_det")
-    private UserDet idUserDet;
+    private UserDetail idUserDetail;
 
 
     public Integer getIdUser() {
@@ -62,11 +62,11 @@ class User {
         this.role = role;
     }
 
-    public UserDet getIdUserDet() {
-        return idUserDet;
+    public UserDetail getIdUserDetail() {
+        return idUserDetail;
     }
 
-    public void setIdUserDet(UserDet idUserDet) {
-        this.idUserDet = idUserDet;
+    public void setIdUserDetail(UserDetail idUserDetail) {
+        this.idUserDetail = idUserDetail;
     }
 }

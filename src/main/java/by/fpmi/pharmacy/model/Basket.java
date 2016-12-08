@@ -1,7 +1,6 @@
-package by.bsu.web.entity;
+package by.fpmi.pharmacy.model;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 /**
