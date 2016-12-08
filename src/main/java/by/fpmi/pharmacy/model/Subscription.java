@@ -4,9 +4,7 @@ package by.fpmi.pharmacy.model;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by Tatiana on 02.12.2016.
- */
+
 @Entity
 @Table(name = "subscription")
 public class Subscription {
@@ -22,8 +20,9 @@ public class Subscription {
     private String subscriptionPeriod;
 
 
-    @OneToMany(mappedBy = "id_medicine")
-    private Set<Medicine> idMedicine;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_medicine")
+    private Medicine idMedicine;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_user")
@@ -54,11 +53,11 @@ public class Subscription {
         this.subscriptionPeriod = subscriptionPeriod;
     }
 
-    public Set<Medicine> getIdMedicine() {
+    public Medicine getIdMedicine() {
         return idMedicine;
     }
 
-    public void setIdMedicine(Set<Medicine> idMedicine) {
+    public void setIdMedicine(Medicine idMedicine) {
         this.idMedicine = idMedicine;
     }
 
