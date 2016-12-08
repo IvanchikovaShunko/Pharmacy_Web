@@ -15,7 +15,7 @@ public class Basket {
     private Integer idBasket;
 
 
-    @OneToMany(mappedBy = "id_medicine")
+    @OneToMany(mappedBy = "idMedicine")
     private Set<Medicine> idMedicine;
 
     @ManyToOne(cascade = CascadeType.ALL)
