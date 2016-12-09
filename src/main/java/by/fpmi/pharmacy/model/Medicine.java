@@ -45,6 +45,8 @@ public class Medicine {
     @Column(name = "contradictions")
     private String contraticions;
 
+    public Medicine(){}
+
     public Integer getIdMedicine() {
         return idMedicine;
     }

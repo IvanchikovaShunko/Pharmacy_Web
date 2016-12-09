@@ -34,6 +34,8 @@ public class UserDetail {
     @Column(name = "telephone")
     private String telephone;
 
+    public UserDetail(){}
+
     public Integer getIdUserDet() {
         return idUserDet;
     }

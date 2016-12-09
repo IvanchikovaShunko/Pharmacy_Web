@@ -18,12 +18,13 @@ public class Basket {
     @OneToMany(mappedBy = "idMedicine")
     private Set<Medicine> idMedicine;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_user")
-    private User idUser;
+    @OneToMany(mappedBy = "idUser")
+    private Set<User> idUser;
 
     @Column(name = "count")
     private Integer count;
+
+    public Basket(){}
 
     public Integer getIdBasket() {
         return idBasket;
@@ -41,11 +42,11 @@ public class Basket {
         this.idMedicine = idMedicine;
     }
 
-    public User getIdUser() {
+    public Set<User> getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(User idUser) {
+    public void setIdUser(Set<User> idUser) {
         this.idUser = idUser;
     }
 

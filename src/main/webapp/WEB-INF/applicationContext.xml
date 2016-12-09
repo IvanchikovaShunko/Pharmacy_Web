@@ -5,4 +5,5 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <import resource="core-app-context.xml"/>
+    <import resource="spring-security.xml"/>
 </beans>
