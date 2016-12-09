@@ -28,7 +28,7 @@
         <!--<intercept-url pattern="/dashboard/**" access="hasRole('USER')"/>-->
         <!--<intercept-url pattern="/students/**" access="hasRole('USER')"/>-->
         <!--<intercept-url pattern="/settings/**" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/journal/**" access="hasRole('USER')"/>-->
+
 
         <session-management>
             <concurrency-control max-sessions="100" session-registry-alias="sessionRegistry"/>
