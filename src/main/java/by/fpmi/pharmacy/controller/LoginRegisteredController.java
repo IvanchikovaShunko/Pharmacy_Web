@@ -39,36 +39,6 @@ public class LoginRegisteredController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login(@ModelAttribute("user") User accountDto, BindingResult result,  Errors errors, HttpServletRequest request, HttpServletResponse response) {
-
-        ModelAndView model = null;
-        model = new ModelAndView("login");
-        model.addObject("error", "Вы должны аутентифицироваться прежде чем получить доступ к содержимому");
-        return model;
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login(@ModelAttribute("user") User accountDto, BindingResult result,  Errors errors, HttpServletRequest request) {
-
-        ModelAndView model = null;
-        User registered = userService.find(accountDto.getLogin(), accountDto.getPassword());
-        if ( registered == null){
-            model = new ModelAndView("/login");
-            model.addObject("error", "Faild login or password");
-        }
-        else {
-            //this step is important, otherwise the new login is not in session which is required by Spring Security
-            request.getSession().setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
-            request.getSession().setAttribute("user", registered);
-            request.getSession().setAttribute("login", registered.getLogin());
-//            request.getSession().setAttribute("authorities", authentication.getAuthorities());
-            //model = new ModelAndView("welcome");
-            model = new ModelAndView("welcome");
-        }
-
-        return model;
-    }
 
 
 

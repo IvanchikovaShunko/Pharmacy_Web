@@ -1,82 +1,4 @@
-<%--&lt;%&ndash;--%>
-  <%--Created by IntelliJ IDEA.--%>
-  <%--User: IvanchikovaA--%>
-  <%--Date: 09.12.2016--%>
-  <%--Time: 11:54--%>
-  <%--To change this template use File | Settings | File Templates.--%>
-<%--&ndash;%&gt;--%>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
-<%--<!DOCTYPE html>--%>
-<%--<html>--%>
-<%--<head runat="server">--%>
-    <%--<meta charset="UTF-8">--%>
-    <%--<link rel="stylesheet" href="UI/css/login.css" media="screen"  />--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<form runat="server" role="form" action="<c:url value="/login"/>" method="post">--%>
-    <%--<div class="page">--%>
-        <%--<div class="header">--%>
 
-            <%--<div class="loginDisplay">--%>
-
-            <%--</div>--%>
-            <%--<div class="clear hideSkiplink">--%>
-
-                <%--<Items>--%>
-
-                <%--</Items>--%>
-
-            <%--</div>--%>
-        <%--</div>--%>
-        <%--<div class="main">--%>
-
-            <%--<div>--%>
-            <%--<span class="failureNotification">--%>
-            <%--</span>--%>
-
-                <%--<div class="failureNotification">--%>
-                    <%--<c:if test="${not empty error}">--%>
-                        <%--<div class="error">${error}</div>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${not empty msg}">--%>
-                        <%--<div class="msg">${msg}</div>--%>
-                    <%--</c:if>--%>
-                <%--</div>--%>
-
-                <%--<div class="accountInfo">--%>
-
-                    <%--<fieldset class="login">--%>
-                        <%--<legend>Сведения учетной записи</legend>--%>
-                        <%--<p>--%>
-                            <%--<!--<span ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Имя пользователя:</span>-->--%>
-                            <%--<input id="login" name="login" type="text" required value="Имя пользователя" onBlur="if(this.value=='')this.value='email'" onFocus="if(this.value=='email')this.value='' ">--%>
-                        <%--</p>--%>
-                        <%--<p>--%>
-                            <%--<input id="password" name="password" type="password" required value="Пароль" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value='' ">--%>
-                        <%--</p>--%>
-                        <%--<p>--%>
-                            <%--<Input Type="CheckBox" ID="RememberMe" runat="server">--%>
-                            <%--<span ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline"></span>--%>
-                        <%--</p>--%>
-
-                    <%--</fieldset>--%>
-                    <%--<p class="submitButton">--%>
-                        <%--<input type="submit" ID="LoginButton" runat="server" CommandName="Login" value="Login" ValidationGroup="LoginUserValidationGroup">--%>
-                    <%--</p>--%>
-                <%--</div>--%>
-                <%--</LayoutTemplate>--%>
-            <%--</div>--%>
-            <%--<div class="clear">--%>
-            <%--</div>--%>
-        <%--</div>--%>
-        <%--<div class="footer">--%>
-
-        <%--</div>--%>
-        <%--</div>--%>
-
-<%--</form>--%>
-<%--</body>--%>
-<%--</html>--%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -89,6 +11,7 @@
     <link href="../resources/css/main.css" rel="stylesheet">
 </head>
 <body>
+<c:url value="/j_spring_security_check" var="loginUrl" />
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -96,7 +19,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="<c:url value="/login"/>" method="post" role="form" style="display: block;">
+                            <form id="login-form" action="${loginUrl}" var="loginUrl" method="post" role="form" style="display: block;">
                                 <div class="form-group">
                                     <c:if test="${not empty error}">
                                         <span class="bg-danger">${error}</span>
@@ -104,10 +27,10 @@
                                     <c:if test="${not empty msg}">
                                         <span class="bg-success text-success">${msg}</span>
                                     </c:if>
-                                    <input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    <input type="text" name="j_username" id="j_username" tabindex="1" class="form-control" placeholder="Username" value="">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    <input type="password" name="j_password" id="j_password" tabindex="2" class="form-control" placeholder="Password">
                                 </div>
                                 <%--<div class="form-group text-center">--%>
                                 <%--<input type="checkbox" tabindex="3" class="" name="remember" id="remember">--%>
@@ -139,3 +62,21 @@
 </div>
 </body>
 </html>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
+<%--<!DOCTYPE html>--%>
+<%--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"--%>
+      <%--xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">--%>
+<%--<head>--%>
+    <%--<title>Spring Security Example </title>--%>
+<%--</head>--%>
+<%--<body>--%>
+<%--<c:url value="/j_spring_security_check" var="loginUrl" />--%>
+<%--<form action="${loginUrl}" method="post">--%>
+    <%--<h2 class="form-signin-heading">Please sign in</h2>--%>
+    <%--<input type="text" class="form-control" name="j_username" placeholder="Login" required autofocus value="pes">--%>
+    <%--<input type="password" class="form-control" name="j_password" placeholder="Password" required value="pes">--%>
+    <%--<button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>--%>
+<%--</form>--%>
+<%--</body>--%>
+<%--</html>--%>
