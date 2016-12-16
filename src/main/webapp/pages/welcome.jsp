@@ -27,9 +27,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="pages/catalog.jsp">Лекарства</a></li>
+        <li><a href="/catalog" action="/catalog/lal">Лекарства</a></li>
         <li><a href="pages/subscription.jsp">Подписки</a></li>
-        <li><a href="pages/profile.jsp">Профиль</a></li>
+        <li><a href="/profile">Профиль</a></li>
         <li><a href="pages/bag.jsp">Корзина</a></li>
       </ul>
     </div>

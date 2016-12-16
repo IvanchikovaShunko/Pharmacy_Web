@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
   User: IvanchikovaA
@@ -16,6 +18,7 @@
   <link href="../resources/css/main.css" rel="stylesheet">
 </head>
 <body>
+
 <%--Навигация--%>
 <div class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -38,20 +41,10 @@
 
 </div>
 
+<c:forEach items="${message}" var="med">
+  <h2>${med.cost}</h2>
+</c:forEach>
 
-<%--Шапка--%>
-<div class="slide" id="slide-1" data-slide="1">
 
-  <div class="container">
-    <div id="home-row-1" class="row clearfix">
-      <div class="col-12">
-
-        <br>
-        <br>
-      </div>
-    </div>
-
-  </div>
-</div>
 </body>
 </html>

@@ -42,6 +42,7 @@ public class LoginRegisteredController {
 
 
 
+
     @RequestMapping(value = "/loginAnonymous", method = RequestMethod.GET)
     public ModelAndView loginAnonymous(@RequestParam(value = "error", required = false) String error,
                                        @RequestParam(value = "logout", required = false) String logout,
