@@ -28,6 +28,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/loginAnonymous" ID="HeadLoginStatus" runat="server">Логин</a></li>
+
                 <li><a href="#">Регистрация</a></li>
             </ul>
         </div>

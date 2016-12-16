@@ -16,6 +16,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
           integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link href="../resources/css/main.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -41,9 +42,30 @@
 
 </div>
 
-<c:forEach items="${message}" var="med">
-  <h2>${med.cost}</h2>
-</c:forEach>
+
+<div class="table-responsive">
+
+  <table class="table table-bordered">
+
+    <tr>
+      <td>Название </td>
+      <td>Количество</td>
+      <td>Грам в одной штуке</td>
+      <td>Стоимость</td>
+    </tr>
+
+    <c:forEach items="${message}" var="med">
+    <tr>
+      <td>${med.nameMedicine}</td>
+      <td>${med.quantity}</td>
+      <td>${med.gramInOne}</td>
+      <td>${med.cost}</td>
+    </tr>
+    </c:forEach>
+  </table>
+
+
+</div>
 
 
 </body>
