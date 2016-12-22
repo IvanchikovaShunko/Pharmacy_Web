@@ -44,7 +44,7 @@ public class BasketController {
     }
 
     @RequestMapping(value = "/basket/add", method = RequestMethod.GET)
-    public String showUpdateUserForm(Model model) {
+    public String showUpdateUserForm() {
 
         //model.addAttribute("publishHouseForm", new Basket());
         return "catalog";
