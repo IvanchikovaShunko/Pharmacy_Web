@@ -1,6 +1,8 @@
 package by.fpmi.pharmacy.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -8,23 +10,34 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "basket")
-public class Basket {
+public class Basket implements Serializable {
+    static final long serialVersionUID = 1L;
+
     @Id
     @Column(name = "id_basket")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idBasket;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinTable(name = "basket_medicine", joinColumns = {
+            @JoinColumn(name = "id_basket", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "id_medicine",
+                    nullable = false)})
+    private Set<Medicine> medicines;
 
-    @OneToMany(mappedBy = "idMedicine")
-    private Set<Medicine> idMedicine;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_user")
+    private User idUser;
 
-    @OneToMany(mappedBy = "idUser")
-    private Set<User> idUser;
 
-    @Column(name = "count")
-    private Integer count;
+    public Basket(Set<Medicine> medicines, User idUser, Integer count) {
+        this.medicines = medicines;
+        this.idUser = idUser;
+    }
 
-    public Basket(){}
+    public Basket() {
+        this.medicines = new HashSet<>();
+    }
 
     public Integer getIdBasket() {
         return idBasket;
@@ -34,27 +47,29 @@ public class Basket {
         this.idBasket = idBasket;
     }
 
-    public Set<Medicine> getIdMedicine() {
-        return idMedicine;
+    public Set<Medicine> getMedicines() {
+        return medicines;
     }
 
-    public void setIdMedicine(Set<Medicine> idMedicine) {
-        this.idMedicine = idMedicine;
+    public Set<Medicine> addMedicine(Medicine medicine) {
+        medicines.add(medicine);
+        return medicines;
     }
 
-    public Set<User> getIdUser() {
+    public Set<Medicine> removeMedicine(Medicine medicine) {
+        medicines.remove(medicine);
+        return medicines;
+    }
+
+    public void setMedicines(Set<Medicine> idMedicine) {
+        this.medicines = idMedicine;
+    }
+
+    public User getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Set<User> idUser) {
+    public void setIdUser(User idUser) {
         this.idUser = idUser;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
     }
 }

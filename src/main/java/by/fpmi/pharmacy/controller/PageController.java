@@ -18,15 +18,7 @@ import java.util.List;
  */
 @Controller
 public class PageController {
-    @Autowired
-    MedicineService medicineService;
 
-    @RequestMapping(value = "/catalog", method = RequestMethod.GET)
-    public String medicinePage(ModelMap model) {
-        List<Medicine> medicineList = medicineService.listMedicines();
-        model.addAttribute("message", medicineList);
-        return "catalog";
-    }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ModelAndView profilePage(){
@@ -41,11 +33,7 @@ public class PageController {
     }
 
 
-    @RequestMapping(value = "/bag", method = RequestMethod.GET)
-    public ModelAndView bagPage(){
-        ModelAndView model = new ModelAndView("bag");
-        return model;
-    }
+
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public ModelAndView welcomePage(){

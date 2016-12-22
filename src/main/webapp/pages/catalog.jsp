@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
   Created by IntelliJ IDEA.
@@ -45,6 +47,8 @@
 
 <div class="table-responsive">
 
+
+
   <table class="table table-bordered">
 
     <tr>
@@ -52,14 +56,22 @@
       <td>Количество</td>
       <td>Грам в одной штуке</td>
       <td>Стоимость</td>
+      <td></td>
     </tr>
 
-    <c:forEach items="${message}" var="med">
+    <c:forEach items="${medicine}" var="med">
     <tr>
       <td>${med.nameMedicine}</td>
       <td>${med.quantity}</td>
       <td>${med.gramInOne}</td>
       <td>${med.cost}</td>
+      <td>
+
+        <form:form method="post" action="/catalog/${SPRING_SECURITY_LAST_USERNAME}">
+          <input type="submit" value="добавить" formmethod="post" formaction="/catalog/${SPRING_SECURITY_LAST_USERNAME}">
+        </form:form>
+      </td>
+
     </tr>
     </c:forEach>
   </table>
