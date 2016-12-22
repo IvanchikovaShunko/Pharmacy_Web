@@ -32,7 +32,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
         //since we have created our custom success handler, its up to us to where
         //we will redirect the user after successfully login
-        httpServletResponse.sendRedirect("/start");
+        httpServletResponse.sendRedirect("/welcome");
     }
 }
 

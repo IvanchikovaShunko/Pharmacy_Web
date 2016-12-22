@@ -60,19 +60,19 @@
     </tr>
 
     <c:forEach items="${medicine}" var="med">
-    <tr>
-      <td>${med.nameMedicine}</td>
-      <td>${med.quantity}</td>
-      <td>${med.gramInOne}</td>
-      <td>${med.cost}</td>
-      <td>
+      <tr>
+        <td>${med.nameMedicine}</td>
+        <td>${med.quantity}</td>
+        <td>${med.gramInOne}</td>
+        <td>${med.cost}</td>
+        <td>
 
-        <form:form method="post" action="/catalog/${SPRING_SECURITY_LAST_USERNAME}">
-          <input type="submit" value="добавить" formmethod="post" formaction="/catalog/${SPRING_SECURITY_LAST_USERNAME}">
-        </form:form>
-      </td>
+          <form:form method="post" action="/catalog/${med.idMedicine}">
+            <input type="submit" value="добавить" formmethod="post" formaction="/catalog/${med.idMedicine}">
+          </form:form>
+        </td>
 
-    </tr>
+      </tr>
     </c:forEach>
   </table>
 

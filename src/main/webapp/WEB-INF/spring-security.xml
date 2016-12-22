@@ -8,6 +8,8 @@
              http://www.springframework.org/schema/security/spring-security.xsd">
     <http pattern="resources/**" security="none"/>
 
+    <beans:bean id="authenticationSuccessHandler" class="by.fpmi.pharmacy.handlers.CustomAuthenticationSuccessHandler"/>
+
     <http use-expressions="true">
         <intercept-url pattern="/**" access="permitAll"/>
         <!--<intercept-url pattern="/" access="hasRole('USER')"/>-->
@@ -16,7 +18,7 @@
 
         <form-login
                 login-page="/login"
-                default-target-url="/pages/welcome.jsp"
+                default-target-url="/welcome"
                 login-processing-url="/j_spring_security_check"
                 authentication-failure-url="/login?error"
                 username-parameter="j_username"

@@ -1,10 +1,16 @@
 package by.fpmi.pharmacy.controller;
 
+import by.fpmi.pharmacy.handlers.CustomAuthenticationSuccessHandler;
 import by.fpmi.pharmacy.model.Medicine;
+import by.fpmi.pharmacy.model.User;
 import by.fpmi.pharmacy.services.MedicineService;
+import by.fpmi.pharmacy.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +25,11 @@ import java.util.List;
 @Controller
 public class PageController {
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String firstLoad(Model model, User user){
+        model.addAttribute("user", user);
+        return "welcome";
+    }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ModelAndView profilePage(){
@@ -33,10 +44,14 @@ public class PageController {
     }
 
 
-
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public ModelAndView welcomePage(){
+    public ModelAndView welcomePage(Model modelAtr){
+        org.springframework.security.core.userdetails.User authUser = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        by.fpmi.pharmacy.model.User  user = userService.readUserByUsername(authUser.getUsername());
+
         ModelAndView model = new ModelAndView("welcome");
         return model;
     }

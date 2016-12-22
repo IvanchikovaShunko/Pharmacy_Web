@@ -20,7 +20,7 @@ public class MedicineServiceImpl implements MedicineService {
 
     @Override
     public Medicine getById(int id) {
-        return null;
+        return medicineDao.getById(id);
     }
 
     @Override

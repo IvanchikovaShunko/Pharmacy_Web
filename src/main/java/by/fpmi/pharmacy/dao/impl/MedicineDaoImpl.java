@@ -16,28 +16,46 @@ import java.util.List;
 @Repository
 public class MedicineDaoImpl implements MedicineDao{
 
+    private static String GET_MEDICINE_BY_ID = "FROM Medicine WHERE id=:id";
+
     @Autowired
     private SessionFactory sessionFactory;
 
-
     @Override
     public Medicine getById(int id) {
-        return null;
+        List medicines = sessionFactory.getCurrentSession().createQuery(GET_MEDICINE_BY_ID)
+                .setParameter("id", id).list();
+        if (medicines.size() > 0) {
+            return (Medicine) medicines.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Override
     public void update(Medicine medicine) {
-
+        sessionFactory.getCurrentSession().update(medicine);
     }
 
     @Override
     public Medicine save(Medicine medicine) {
-        return null;
+        if (medicine.getIdMedicine() != null) {
+            Medicine m = getById(medicine.getIdMedicine());
+            if (m != null) {
+                sessionFactory.getCurrentSession().merge(medicine);
+                return medicine;
+            }
+        }
+        sessionFactory.getCurrentSession().save(medicine);
+        return medicine;
     }
 
     @Override
     public void delete(int id) {
-
+        Medicine medicine = getById(id);
+        if (null != medicine) {
+            sessionFactory.getCurrentSession().delete(medicine);
+        }
     }
 
     @Override

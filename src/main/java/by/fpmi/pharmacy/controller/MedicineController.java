@@ -8,12 +8,14 @@ import by.fpmi.pharmacy.services.MedicineService;
 import by.fpmi.pharmacy.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -35,6 +37,7 @@ public class MedicineController {
     public String medicinePage(ModelMap model) {
         List<Medicine> medicineList = medicineService.listMedicines();
         model.addAttribute("medicine", medicineList);
+
         return "catalog";
     }
 
@@ -45,11 +48,37 @@ public class MedicineController {
     }
 
 
-
-    @RequestMapping(value = "/catalog/{medicineName}", method = RequestMethod.POST)
-    public void addMedicineInBasket(@PathVariable("medicineName") String userName) {
+    @RequestMapping(value = "/catalog/{medicineName}/add", method = RequestMethod.GET)
+    public void addMedicineInBasketGet(@PathVariable("medicineName") String userName) {
         User user = userService.readUserByUsername(userName);
 
+    }
+
+
+    @RequestMapping(value = "/catalog/{medicineId}", method = RequestMethod.POST)
+    public String addMedicineInBasket(@PathVariable("medicineId") int id, Model model) {
+        org.springframework.security.core.userdetails.User authUser = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        by.fpmi.pharmacy.model.User  user = userService.readUserByUsername(authUser.getUsername());
+      //  User user = userService.readUserByUsername(userName);
+        Medicine medicine = medicineService.getById(id);
+        Basket basket = basketService.getByUserId(user.getIdUser());
+
+        if (medicine != null) {
+            if (basket == null) {
+                basket = new Basket();
+                basket.setIdUser(user);
+                basket.addMedicine(medicine);
+                basketService.save(basket);
+            } else {
+                basket.addMedicine(medicine);
+                basketService.update(basket);
+            }
+            List<Medicine> medicineList = medicineService.listMedicines();
+            model.addAttribute("medicine", medicineList);
+            return "catalog";
+        }
+
+        return "catalog";
     }
 
 
