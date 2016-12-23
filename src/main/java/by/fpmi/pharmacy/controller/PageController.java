@@ -31,11 +31,7 @@ public class PageController {
         return "welcome";
     }
 
-    @RequestMapping(value = "/profile", method = RequestMethod.GET)
-    public ModelAndView profilePage(){
-        ModelAndView model = new ModelAndView("profile");
-        return model;
-    }
+
 
     @RequestMapping(value = "/subscription", method = RequestMethod.GET)
     public ModelAndView subscriptionPage(){

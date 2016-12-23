@@ -2,6 +2,7 @@ package by.fpmi.pharmacy.model;
 
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.Set;
 
 
@@ -17,7 +18,7 @@ public class Subscription {
     private Boolean subscription;
 
     @Column(name = "subscription_period")
-    private String subscriptionPeriod;
+    private Integer subscriptionPeriod;
 
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -46,11 +47,11 @@ public class Subscription {
         this.subscription = subscription;
     }
 
-    public String getSubscriptionPeriod() {
+    public Integer getSubscriptionPeriod() {
         return subscriptionPeriod;
     }
 
-    public void setSubscriptionPeriod(String subscriptionPeriod) {
+    public void setSubscriptionPeriod(Integer subscriptionPeriod) {
         this.subscriptionPeriod = subscriptionPeriod;
     }
 

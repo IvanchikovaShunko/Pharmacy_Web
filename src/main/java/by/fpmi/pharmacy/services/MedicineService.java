@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface MedicineService {
     Medicine getById(int id);
+    Medicine findByName(String name);
     void update(Medicine medicine);
     Medicine save(Medicine medicine);
     void delete(int id);

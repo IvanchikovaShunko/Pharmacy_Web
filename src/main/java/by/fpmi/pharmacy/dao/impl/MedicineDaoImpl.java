@@ -2,6 +2,7 @@ package by.fpmi.pharmacy.dao.impl;
 
 import by.fpmi.pharmacy.dao.MedicineDao;
 import by.fpmi.pharmacy.model.Medicine;
+import by.fpmi.pharmacy.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
@@ -17,6 +18,7 @@ import java.util.List;
 public class MedicineDaoImpl implements MedicineDao{
 
     private static String GET_MEDICINE_BY_ID = "FROM Medicine WHERE id=:id";
+    private static String GET_MEDICINE_BY_USERNAME = "FROM Medicine WHERE nameMedicine=:nameMedicine";
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -27,6 +29,17 @@ public class MedicineDaoImpl implements MedicineDao{
                 .setParameter("id", id).list();
         if (medicines.size() > 0) {
             return (Medicine) medicines.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Medicine getMedicineByName(String name) {
+        List medicine = sessionFactory.getCurrentSession().createQuery(GET_MEDICINE_BY_USERNAME)
+                .setParameter("nameMedicine", name).list();
+        if (medicine.size() > 0) {
+            return (Medicine) medicine.get(0);
         } else {
             return null;
         }

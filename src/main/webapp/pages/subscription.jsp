@@ -22,16 +22,16 @@
 
     <div class="navbar-header">
 
-      <a class="navbar-brand" href="../index.jsp">Аптечная база</a>
+      <a class="navbar-brand" href="/welcome">Аптечная база</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="catalog.jsp">Лекарства</a></li>
-        <li><a href="subscription.jsp">Подписки</a></li>
-        <li><a href="profile.jsp">Профиль</a></li>
-        <li><a href="bag.jsp">Корзина</a></li>
+        <li><a href="/catalog" >Лекарства</a></li>
+        <li><a href="/subscription">Подписки</a></li>
+        <li><a href="/profile">Профиль</a></li>
+        <li><a href="/basket">Корзина</a></li>
       </ul>
     </div>
   </div>

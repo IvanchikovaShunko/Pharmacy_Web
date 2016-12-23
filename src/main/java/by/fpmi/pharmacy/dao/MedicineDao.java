@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface  MedicineDao {
         Medicine getById(int id);
+        Medicine getMedicineByName(String name);
         void update(Medicine medicine);
         Medicine save(Medicine medicine);
         void delete(int id);

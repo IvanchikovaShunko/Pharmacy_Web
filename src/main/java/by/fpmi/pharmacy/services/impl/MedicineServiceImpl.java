@@ -24,18 +24,23 @@ public class MedicineServiceImpl implements MedicineService {
     }
 
     @Override
-    public void update(Medicine medicine) {
+    public Medicine findByName(String name) {
+        return medicineDao.getMedicineByName(name);
+    }
 
+    @Override
+    public void update(Medicine medicine) {
+        medicineDao.update(medicine);
     }
 
     @Override
     public Medicine save(Medicine medicine) {
-        return null;
+        return medicineDao.save(medicine);
     }
 
     @Override
     public void delete(int id) {
-
+        medicineDao.delete(id);
     }
 
     @Override

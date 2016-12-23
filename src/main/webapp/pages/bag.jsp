@@ -5,6 +5,9 @@
   Time: 22:50
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -22,36 +25,48 @@
 
     <div class="navbar-header">
 
-      <a class="navbar-brand" href="../index.jsp">Аптечная база</a>
+      <a class="navbar-brand" href="/welcome">Аптечная база</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="catalog.jsp">Лекарства</a></li>
-        <li><a href="subscription.jsp">Подписки</a></li>
-        <li><a href="profile.jsp">Профиль</a></li>
-        <li><a href="bag.jsp">Корзина</a></li>
+        <li><a href="/catalog" >Лекарства</a></li>
+        <li><a href="/subscription">Подписки</a></li>
+        <li><a href="/profile">Профиль</a></li>
+        <li><a href="/basket">Корзина</a></li>
       </ul>
     </div>
   </div>
 
 </div>
 
+<div class="table-responsive">
 
-<%--Шапка--%>
-<div class="slide" id="slide-1" data-slide="1">
 
-  <div class="container">
-    <div id="home-row-1" class="row clearfix">
-      <div class="col-12">
+  <table class="table table-bordered">
 
-        <br>
-        <br>
-      </div>
-    </div>
+    <c:if test="${not empty msg}">
+      <span class="bg-success text-success">${msg}</span>
+    </c:if>
 
-  </div>
+    <tr>
+      <td>Название </td>
+      <td>Количество</td>
+      <td>Грам в одной штуке</td>
+      <td>Стоимость</td>
+    </tr>
+
+    <c:forEach items="${medicineInBasket}" var="medicine">
+      <tr>
+        <td>${medicine.nameMedicine}</td>
+        <td>${medicine.quantity}</td>
+        <td>${medicine.gramInOne}</td>
+        <td>${medicine.cost}</td>
+      </tr>
+    </c:forEach>
+  </table>
+
 </div>
 </body>
 </html>
