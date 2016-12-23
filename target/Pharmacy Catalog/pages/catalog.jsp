@@ -28,14 +28,14 @@
 
     <div class="navbar-header">
 
-      <a class="navbar-brand" href="../index.jsp">Аптечная база</a>
+      <a class="navbar-brand" href="/welcome">Аптечная база</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/catalog" >Лекарства</a></li>
-        <li><a href="subscription.jsp">Подписки</a></li>
+        <li><a href="/subscription">Подписки</a></li>
         <li><a href="/profile">Профиль</a></li>
         <li><a href="/basket">Корзина</a></li>
       </ul>
@@ -54,6 +54,7 @@
   <table class="table table-bordered">
 
     <tr>
+      <td></td>
       <td>Название </td>
       <td>Количество</td>
       <td>Грам в одной штуке</td>
@@ -63,6 +64,7 @@
 
     <c:forEach items="${medicine}" var="med">
       <tr>
+        <td><img src="${med.imagePath}"/></td>
         <td>${med.nameMedicine}</td>
         <td>${med.quantity}</td>
         <td>${med.gramInOne}</td>
@@ -78,10 +80,18 @@
           <input type="submit" value="подписаться" formmethod="post" formaction="/catalog/${med.nameMedicine}/${med.idMedicine}">
         </form:form>
       </td>
-
+        <td>
+          <form:form method="get" action="/about/${med.idMedicine}">
+            <input type="submit" value="узнать больше" formmethod="get" formaction="/about/${med.idMedicine}">
+          </form:form>
+        </td>
       </tr>
     </c:forEach>
   </table>
+
+  <form:form method="get" action="/about">
+    <input type="submit" value="узнать больше" formmethod="get" formaction="/about">
+  </form:form>
 
       </div>
 

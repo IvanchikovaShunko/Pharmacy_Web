@@ -29,6 +29,8 @@ public class Subscription {
     @JoinColumn(name = "id_user")
     private User idUser;
 
+
+
     public Subscription(){}
 
     public Integer getIdSubscription() {

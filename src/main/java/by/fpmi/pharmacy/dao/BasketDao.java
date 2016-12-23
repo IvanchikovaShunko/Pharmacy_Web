@@ -13,4 +13,5 @@ public interface BasketDao {
     Basket save(Basket basket);
     void removeMedicine(Basket basket, Medicine medicine);
     void delete(int id);
+    void clearBasket(Basket basket);
 }

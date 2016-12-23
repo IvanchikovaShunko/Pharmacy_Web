@@ -2,6 +2,7 @@ package by.fpmi.pharmacy.controller;
 
 import by.fpmi.pharmacy.model.Basket;
 import by.fpmi.pharmacy.model.Medicine;
+import by.fpmi.pharmacy.model.Subscription;
 import by.fpmi.pharmacy.model.User;
 import by.fpmi.pharmacy.services.BasketService;
 import by.fpmi.pharmacy.services.MedicineService;
@@ -42,6 +43,11 @@ public class BasketController {
 
         if(basket != null){
             List<Medicine> medicines = basket.getMedicines();
+            int sum = 0;
+            for(Medicine medicine : medicines) {
+                sum += medicine.getCost();
+            }
+                model.addAttribute("sum", sum);
             model.addAttribute("medicineInBasket", medicines);
             return "bag";
         }
@@ -49,7 +55,14 @@ public class BasketController {
         return "bag";
     }
 
+    @RequestMapping(value = "/basket/{sum}", method = RequestMethod.POST)
+    public String addSubscription(@PathVariable("sum") int sum, Model model) {
+        org.springframework.security.core.userdetails.User authUser = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        by.fpmi.pharmacy.model.User  user = userService.readUserByUsername(authUser.getUsername());
+        Basket basket = basketService.getByUserId(user.getIdUser());
+        basketService.clearBasket(basket);
 
-
+        return "bag";
+    }
 
 }

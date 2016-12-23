@@ -5,6 +5,9 @@
   Time: 22:48
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -22,16 +25,16 @@
 
     <div class="navbar-header">
 
-      <a class="navbar-brand" href="../index.jsp">Аптечная база</a>
+      <a class="navbar-brand" href="/welcome">Аптечная база</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="catalog.jsp">Лекарства</a></li>
-        <li><a href="subscription.jsp">Подписки</a></li>
-        <li><a href="profile.jsp">Профиль</a></li>
-        <li><a href="bag.jsp">Корзина</a></li>
+        <li><a href="/catalog" >Лекарства</a></li>
+        <li><a href="/subscription">Подписки</a></li>
+        <li><a href="/profile">Профиль</a></li>
+        <li><a href="/basket">Корзина</a></li>
       </ul>
     </div>
   </div>
@@ -40,18 +43,32 @@
 
 
 <%--Шапка--%>
-<div class="slide" id="slide-1" data-slide="1">
+<table class="table table-bordered">
 
-  <div class="container">
-    <div id="home-row-1" class="row clearfix">
-      <div class="col-12">
+  <c:if test="${not empty msg}">
+    <span class="bg-success text-success">${msg}</span>
+  </c:if>
 
-        <br>
-        <br>
-      </div>
-    </div>
+  <tr>
+    <td></td>
+    <td>Название </td>
+    <td>Количество</td>
+    <td>Грам в одной штуке</td>
 
-  </div>
-</div>
+    <td>Период подписки</td>
+  </tr>
+
+  <c:forEach items="${medicineInSubscr}" var="medicine">
+    <tr>
+      <td><img src="${medicine.imagePath}"/></td>
+      <td>${medicine.nameMedicine}</td>
+      <td>${medicine.quantity}</td>
+      <td>${medicine.gramInOne}</td>
+      <c:forEach items="${subscription}" var="subscriptions">
+           <td>${subscriptions.subscriptionPeriod}</td>
+      </c:forEach>
+    </tr>
+  </c:forEach>
+</table>
 </body>
 </html>

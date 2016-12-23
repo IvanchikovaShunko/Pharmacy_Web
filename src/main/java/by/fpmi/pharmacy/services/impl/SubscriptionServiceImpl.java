@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by IvanchikovaA on 23.12.2016.
  */
@@ -21,9 +23,15 @@ public class SubscriptionServiceImpl implements SubscriptionService {
         return subscriptionDao.getById(id);
     }
 
+
     @Override
     public Subscription getByUserId(int userId) {
         return subscriptionDao.getByUserId(userId);
+    }
+
+    @Override
+    public List<Subscription> getUserSubscriptions(int userId) {
+        return subscriptionDao.getUserSubscriptions(userId);
     }
 
     @Override

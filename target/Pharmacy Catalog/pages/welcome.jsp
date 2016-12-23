@@ -28,7 +28,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/catalog" >Лекарства</a></li>
-        <li><a href="pages/subscription.jsp">Подписки</a></li>
+        <li><a href="/subscription">Подписки</a></li>
         <li><a href="/profile">Профиль</a></li>
         <li><a href="/basket">Корзина</a></li>
       </ul>

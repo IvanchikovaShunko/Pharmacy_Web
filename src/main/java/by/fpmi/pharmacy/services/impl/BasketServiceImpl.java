@@ -47,4 +47,8 @@ public class BasketServiceImpl implements BasketService {
         basketDao.removeMedicine(basket, medicine);
     }
 
+    @Override
+    public void clearBasket(Basket basket) {
+        basketDao.clearBasket(basket);
+    }
 }

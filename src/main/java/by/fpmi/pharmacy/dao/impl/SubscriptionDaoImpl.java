@@ -29,13 +29,23 @@ public class SubscriptionDaoImpl implements SubscriptionDao {
             return null;
         }
     }
-
     @Override
     public Subscription getByUserId(int userId) {
         List subscriptions = sessionFactory.getCurrentSession().createQuery(GET_SUBSCRIPTION_BY_USER_ID)
                 .setParameter("idUser", userId).list();
         if (subscriptions.size() > 0) {
             return (Subscription) subscriptions.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Subscription> getUserSubscriptions(int userId) {
+        List<Subscription> subscriptions = sessionFactory.getCurrentSession().createQuery(GET_SUBSCRIPTION_BY_USER_ID)
+                .setParameter("idUser", userId).list();
+        if (subscriptions.size() > 0) {
+            return subscriptions;
         } else {
             return null;
         }

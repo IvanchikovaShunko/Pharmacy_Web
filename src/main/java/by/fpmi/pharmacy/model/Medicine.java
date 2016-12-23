@@ -45,6 +45,9 @@ public class Medicine {
     @Column(name = "contradictions")
     private String contraticions;
 
+    @Column(name = "image_path")
+    private String imagePath;
+
     public Medicine(){}
 
     public Integer getIdMedicine() {
@@ -133,5 +136,13 @@ public class Medicine {
 
     public void setContraticions(String contraticions) {
         this.contraticions = contraticions;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

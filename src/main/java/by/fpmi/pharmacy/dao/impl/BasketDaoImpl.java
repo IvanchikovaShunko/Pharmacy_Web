@@ -78,4 +78,9 @@ public class BasketDaoImpl implements BasketDao {
         }
     }
 
+    @Override
+    public void clearBasket(Basket basket) {
+        basket.getMedicines().clear();
+        sessionFactory.getCurrentSession().merge(basket);
+    }
 }

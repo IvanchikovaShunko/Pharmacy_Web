@@ -1,6 +1,6 @@
 package by.fpmi.pharmacy.controller;
 
-import by.fpmi.pharmacy.handlers.CustomAuthenticationSuccessHandler;
+
 import by.fpmi.pharmacy.model.Medicine;
 import by.fpmi.pharmacy.model.User;
 import by.fpmi.pharmacy.services.MedicineService;
@@ -29,14 +29,6 @@ public class PageController {
     public String firstLoad(Model model, User user){
         model.addAttribute("user", user);
         return "welcome";
-    }
-
-
-
-    @RequestMapping(value = "/subscription", method = RequestMethod.GET)
-    public ModelAndView subscriptionPage(){
-        ModelAndView model = new ModelAndView("subscription");
-        return model;
     }
 
 

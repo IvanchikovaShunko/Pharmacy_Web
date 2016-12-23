@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import by.fpmi.pharmacy.model.User;
 
 /**
  * Created by Tatiana on 02.12.2016.

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Tatiana
-  Date: 25.11.2016
-  Time: 22:50
+  Date: 23.12.2016
+  Time: 22:37
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -41,50 +41,51 @@
 
 </div>
 
-<div class="table-responsive">
+
+<div class="row">
+  <div class="col-md-4"><img src="${medicine.imagePath}" class="img-circle" alt="Cinque Terre" width="304" height="236"></div>
+  <div class="col-md-6">
+
+    <table class="table table-bordered">
 
 
-  <table class="table table-bordered">
-
-    <c:if test="${not empty msg}">
-      <span class="bg-success text-success">${msg}</span>
-    </c:if>
-
-    <tr>
-      <td></td>
-      <td>Название </td>
-      <td>Количество</td>
-      <td>Грам в одной штуке</td>
-      <td>Стоимость</td>
-    </tr>
-
-    <c:forEach items="${medicineInBasket}" var="medicine">
       <tr>
-        <td><img src="${medicine.imagePath}"/></td>
+        <td>Название </td>
         <td>${medicine.nameMedicine}</td>
-        <td>${medicine.quantity}</td>
+      </tr>
+      <tr>
+        <td>Грам в одной штуке</td>
         <td>${medicine.gramInOne}</td>
-        <td>${medicine.cost}</td>
+      </tr>
+      <tr>
+        <td>Консистенция</td>
+        <td>${medicine.consist}</td>
+      </tr>
+      <tr>
+        <td>О лекарстве</td>
+        <td>${medicine.aboutMedicine}</td>
+      </tr>
+      <tr>
+        <td>Срок годности</td>
+        <td>${medicine.expiration_date}</td>
+      </tr>
+      <tr>
+        <td>Состояние</td>
+        <td>${medicine.state}</td>
+      </tr>
+      <tr>
+        <td>Как применять</td>
+        <td>${medicine.dosing}</td>
       </tr>
 
+      <tr>
+        <td>Опасен при</td>
+        <td>${medicine.contraticions}</td>
+      </tr>
 
-    </c:forEach>
-
-
-  </table>
-
-  <div>
-    Сумма: ${sum}
+    </table>
   </div>
-
-
-
-  <form:form method="post" action="/basket/${sum}">
-    <input type="submit" value="купить" formmethod="post" formaction="/basket/${sum}">
-  </form:form>
-
-
-
+  <%--<div class="col-md-4">.col-md-4</div>--%>
 </div>
 </body>
 </html>

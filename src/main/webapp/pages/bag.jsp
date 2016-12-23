@@ -51,6 +51,7 @@
     </c:if>
 
     <tr>
+      <td></td>
       <td>Название </td>
       <td>Количество</td>
       <td>Грам в одной штуке</td>
@@ -59,13 +60,30 @@
 
     <c:forEach items="${medicineInBasket}" var="medicine">
       <tr>
+        <td><img src="${medicine.imagePath}"/></td>
         <td>${medicine.nameMedicine}</td>
         <td>${medicine.quantity}</td>
         <td>${medicine.gramInOne}</td>
         <td>${medicine.cost}</td>
       </tr>
+
+
     </c:forEach>
+
+
   </table>
+
+  <div>
+    Сумма: ${sum}
+  </div>
+
+
+
+  <form:form method="post" action="/basket/${sum}">
+    <input type="submit" value="купить" formmethod="post" formaction="/basket/${sum}">
+  </form:form>
+
+
 
 </div>
 </body>
