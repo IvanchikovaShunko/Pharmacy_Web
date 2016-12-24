@@ -18,6 +18,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
           integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link href="../resources/css/main.css" rel="stylesheet">
+  <link href="../resources/css/catalog.css" rel="stylesheet">
 
 </head>
 <body>
@@ -38,6 +39,7 @@
         <li><a href="/subscription">Подписки</a></li>
         <li><a href="/profile">Профиль</a></li>
         <li><a href="/basket">Корзина</a></li>
+        <li><a href="../index.jsp">Выход</a></li>
       </ul>
     </div>
   </div>
@@ -45,13 +47,13 @@
 </div>
 
 
-<div class="table-responsive">
+<div class="table-responsive container">
 
   <c:if test="${not empty msg}">
     <span class="bg-success text-success">${msg}</span>
   </c:if>
 
-  <table class="table table-bordered">
+  <table class="table table-striped">
 
     <tr>
       <td></td>
@@ -59,6 +61,9 @@
       <td>Количество</td>
       <td>Грам в одной штуке</td>
       <td>Стоимость</td>
+
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
 
@@ -72,26 +77,23 @@
         <td>
 
           <form:form method="post" action="/catalog/${med.idMedicine}">
-            <input type="submit" value="добавить" formmethod="post" formaction="/catalog/${med.idMedicine}">
+            <input type="button" class="btn btn-danger" value="добавить" formmethod="post" formaction="/catalog/${med.idMedicine}">
+
           </form:form>
         </td>
       <td>
         <form:form method="post" action="/catalog/${med.nameMedicine}/${med.idMedicine}">
-          <input type="submit" value="подписаться" formmethod="post" formaction="/catalog/${med.nameMedicine}/${med.idMedicine}">
+          <input type="button" class="btn btn-warning" value="подписаться" formmethod="post" formaction="/catalog/${med.nameMedicine}/${med.idMedicine}">
         </form:form>
       </td>
         <td>
           <form:form method="get" action="/about/${med.idMedicine}">
-            <input type="submit" value="узнать больше" formmethod="get" formaction="/about/${med.idMedicine}">
+            <input type="button" class="btn btn-success" value="узнать больше" formmethod="get" formaction="/about/${med.idMedicine}">
           </form:form>
         </td>
       </tr>
     </c:forEach>
   </table>
-
-  <form:form method="get" action="/about">
-    <input type="submit" value="узнать больше" formmethod="get" formaction="/about">
-  </form:form>
 
       </div>
 

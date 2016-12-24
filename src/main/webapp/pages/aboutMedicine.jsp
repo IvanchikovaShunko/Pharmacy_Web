@@ -35,6 +35,7 @@
         <li><a href="/subscription">Подписки</a></li>
         <li><a href="/profile">Профиль</a></li>
         <li><a href="/basket">Корзина</a></li>
+        <li><a href="../index.jsp">Выход</a></li>
       </ul>
     </div>
   </div>
@@ -46,7 +47,7 @@
   <div class="col-md-4"><img src="${medicine.imagePath}" class="img-circle" alt="Cinque Terre" width="304" height="236"></div>
   <div class="col-md-6">
 
-    <table class="table table-bordered">
+    <table class="table table-striped">
 
 
       <tr>

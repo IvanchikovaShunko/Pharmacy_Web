@@ -31,6 +31,7 @@
         <li><a href="/subscription">Подписки</a></li>
         <li><a href="/profile">Профиль</a></li>
         <li><a href="/basket">Корзина</a></li>
+        <li><a href="../index.jsp">Выход</a></li>
       </ul>
     </div>
   </div>

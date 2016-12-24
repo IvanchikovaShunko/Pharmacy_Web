@@ -35,6 +35,7 @@
         <li><a href="/subscription">Подписки</a></li>
         <li><a href="/profile">Профиль</a></li>
         <li><a href="/basket">Корзина</a></li>
+        <li><a href="../index.jsp">Выход</a></li>
       </ul>
     </div>
   </div>
@@ -44,7 +45,7 @@
 <div class="table-responsive">
 
 
-  <table class="table table-bordered">
+  <table class=" container table table-striped">
 
     <c:if test="${not empty msg}">
       <span class="bg-success text-success">${msg}</span>
@@ -73,14 +74,16 @@
 
   </table>
 
-  <div>
+  <div class = "row">
+  <div class="col-md-3 col-md-offset-3">
     Сумма: ${sum}
+  </div>
   </div>
 
 
 
   <form:form method="post" action="/basket/${sum}">
-    <input type="submit" value="купить" formmethod="post" formaction="/basket/${sum}">
+    <input type="button" class="btn btn-danger" value="купить" formmethod="post" formaction="/basket/${sum}">
   </form:form>
 
 
