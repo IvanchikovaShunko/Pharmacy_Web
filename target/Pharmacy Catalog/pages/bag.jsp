@@ -74,14 +74,14 @@
 
   </table>
 
-  <div class = "row">
+
   <div class="col-md-3 col-md-offset-3">
     Сумма: ${sum}
   </div>
-  </div>
+  <
 
 
-  
+
   <form:form method="post" action="/basket/${sum}">
     <input type="button" class="btn btn-danger" value="купить" formmethod="post" formaction="/basket/${sum}">
   </form:form>

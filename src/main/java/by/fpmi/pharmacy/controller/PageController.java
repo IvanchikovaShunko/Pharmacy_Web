@@ -44,5 +44,11 @@ public class PageController {
         return model;
     }
 
+    @RequestMapping(value = "/reg", method = RequestMethod.GET)
+    public String regPage(Model model, User user){
+
+        return "reg";
+    }
+
 
 }
